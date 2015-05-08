@@ -28,7 +28,7 @@ class LoadTempModel(MRJob):
                             half_hour_index = 2 * int(curr_line_parts[0][-12:-10]) + 1
                         else:
                             half_hour_index = 2 * int(curr_line_parts[0][-12:-10])
-                    print curr_line_parts[5], curr_line_parts[6]
+                    # print curr_line_parts[5], curr_line_parts[6]
                     yield (int(curr_line_parts[7]), int(half_hour_index)), (float(curr_line_parts[5]),
                                                                             float(curr_line_parts[6]))
 
