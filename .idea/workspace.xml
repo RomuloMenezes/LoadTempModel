@@ -2,7 +2,9 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="6dbdbb12-4b53-4c95-a255-6b2d90491f7d" name="Default" comment="">
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/LoadTempModel.out" afterPath="$PROJECT_DIR$/LoadTempModel.out" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/LoadTempModel.py" afterPath="$PROJECT_DIR$/LoadTempModel.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/mapper.out" afterPath="$PROJECT_DIR$/mapper.out" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <ignored path="LoadTempModel.iws" />
@@ -29,10 +31,19 @@
       <file leaf-file-name="LoadTempModel.py" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/LoadTempModel.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="30" column="22" selection-start="1339" selection-end="1339" vertical-scroll-proportion="0.4817987" vertical-offset="0" max-vertical-offset="934">
+            <state line="67" column="23" selection-start="3121" selection-end="3121" vertical-scroll-proportion="1.0760171" vertical-offset="0" max-vertical-offset="1095">
               <folding>
                 <element signature="e#24#51#0" expanded="true" />
               </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="Detect_Ringdown.py" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/../DetectRingdown/Final/Detect_Ringdown.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" vertical-offset="1564" max-vertical-offset="2115">
+              <folding />
             </state>
           </provider>
         </entry>
@@ -136,7 +147,7 @@
     </panes>
   </component>
   <component name="PropertiesComponent">
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/LoadTempModel.py" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/../DetectRingdown/Final/Detect_Ringdown.py" />
     <property name="FullScreen" value="false" />
     <property name="recentsLimit" value="5" />
     <property name="restartRequiresConfirmation" value="true" />
@@ -366,7 +377,11 @@
       <created>1431110181179</created>
       <updated>1431110181179</updated>
     </task>
-    <option name="localTasksCounter" value="2" />
+    <task id="LOCAL-00002" summary="Second commit test">
+      <created>1431110576411</created>
+      <updated>1431110576411</updated>
+    </task>
+    <option name="localTasksCounter" value="3" />
     <servers />
   </component>
   <component name="ToolWindowManager">
@@ -406,18 +421,12 @@
       <TodoPanelSettings />
     </option>
     <MESSAGE value="Commit test" />
-    <option name="LAST_COMMIT_MESSAGE" value="Commit test" />
+    <MESSAGE value="Second commit test" />
+    <option name="LAST_COMMIT_MESSAGE" value="Second commit test" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
-      <breakpoints>
-        <line-breakpoint enabled="true" type="python-line">
-          <url>file://$PROJECT_DIR$/LoadTempModel.py</url>
-          <line>15</line>
-          <option name="timeStamp" value="13" />
-        </line-breakpoint>
-      </breakpoints>
-      <option name="time" value="14" />
+      <option name="time" value="15" />
     </breakpoint-manager>
   </component>
   <component name="editorHistoryManager">
@@ -441,7 +450,9 @@
     </entry>
     <entry file="file:///Library/Python/2.7/site-packages/mrjob/job.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="567" column="0" selection-start="21291" selection-end="21291" vertical-scroll-proportion="0.0" vertical-offset="8505" max-vertical-offset="18510" />
+        <state line="567" column="0" selection-start="21291" selection-end="21291" vertical-scroll-proportion="0.0" vertical-offset="8505" max-vertical-offset="18510">
+          <folding />
+        </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/LoadTempModel.py">
@@ -455,7 +466,9 @@
     </entry>
     <entry file="file:///Library/Python/2.7/site-packages/mrjob/job.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="567" column="0" selection-start="21291" selection-end="21291" vertical-scroll-proportion="0.0" vertical-offset="8505" max-vertical-offset="18510" />
+        <state line="567" column="0" selection-start="21291" selection-end="21291" vertical-scroll-proportion="0.0" vertical-offset="8505" max-vertical-offset="18510">
+          <folding />
+        </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/LoadTempModel.py">
@@ -467,34 +480,39 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/../DetectRingdown/Final/Detect_Ringdown.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="2235" />
-      </provider>
-    </entry>
     <entry file="file:///Library/Python/2.7/site-packages/mrjob/inline.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="158" column="0" selection-start="5700" selection-end="5700" vertical-scroll-proportion="0.0" vertical-offset="2187" max-vertical-offset="2745" />
+        <state line="158" column="0" selection-start="5700" selection-end="5700" vertical-scroll-proportion="0.0" vertical-offset="2187" max-vertical-offset="2745">
+          <folding />
+        </state>
       </provider>
     </entry>
     <entry file="file:///Library/Python/2.7/site-packages/mrjob/runner.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="457" column="0" selection-start="17924" selection-end="17924" vertical-scroll-proportion="0.0" vertical-offset="6672" max-vertical-offset="18645" />
+        <state line="457" column="0" selection-start="17924" selection-end="17924" vertical-scroll-proportion="0.0" vertical-offset="6672" max-vertical-offset="18645">
+          <folding />
+        </state>
       </provider>
     </entry>
     <entry file="file:///Library/Python/2.7/site-packages/mrjob/launch.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="146" column="0" selection-start="5260" selection-end="5260" vertical-scroll-proportion="0.0" vertical-offset="1872" max-vertical-offset="10200" />
+        <state line="146" column="0" selection-start="5260" selection-end="5260" vertical-scroll-proportion="0.0" vertical-offset="1872" max-vertical-offset="10200">
+          <folding />
+        </state>
       </provider>
     </entry>
     <entry file="file:///Library/Python/2.7/site-packages/mrjob/job.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="493" column="0" selection-start="18577" selection-end="18577" vertical-scroll-proportion="0.0" vertical-offset="7107" max-vertical-offset="18405" />
+        <state line="493" column="0" selection-start="18577" selection-end="18577" vertical-scroll-proportion="0.0" vertical-offset="7107" max-vertical-offset="18405">
+          <folding />
+        </state>
       </provider>
     </entry>
     <entry file="file:///Library/Python/2.7/site-packages/mrjob/sim.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="194" column="0" selection-start="7013" selection-end="7013" vertical-scroll-proportion="0.3321234" vertical-offset="2487" max-vertical-offset="8220" />
+        <state line="194" column="0" selection-start="7013" selection-end="7013" vertical-scroll-proportion="0.3321234" vertical-offset="2487" max-vertical-offset="8220">
+          <folding />
+        </state>
       </provider>
     </entry>
     <entry file="file:///System/Library/Frameworks/Python.framework/Versions/2.7/Extras/lib/python/numpy/core/fromnumeric.py">
@@ -502,9 +520,16 @@
         <state line="45" column="7" selection-start="1381" selection-end="1381" vertical-scroll-proportion="0.57713246" vertical-offset="312" max-vertical-offset="38475" />
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/../DetectRingdown/Final/Detect_Ringdown.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="2115">
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/LoadTempModel.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="30" column="22" selection-start="1339" selection-end="1339" vertical-scroll-proportion="0.4817987" vertical-offset="0" max-vertical-offset="934">
+        <state line="67" column="23" selection-start="3121" selection-end="3121" vertical-scroll-proportion="1.0760171" vertical-offset="0" max-vertical-offset="1095">
           <folding>
             <element signature="e#24#51#0" expanded="true" />
           </folding>
