@@ -11,27 +11,33 @@ class LoadTempModel(MRJob):
         return [MRStep(mapper=self.prepare_data,
                        reducer=self.calc_dispersion),
                 MRStep(mapper=self.exclude_outliers)]
+        #               reducer=self.calc_regression)]
 
     def prepare_data(self, _, current_line):
 
         curr_line_parts = current_line.split(';')
-        if curr_line_parts[5] != '' and curr_line_parts[6] != '' and \
-           curr_line_parts[5] != '#VALOR!' and curr_line_parts[6] != '#VALOR!':  # Exclude empty and invalid data
-            if curr_line_parts[4] == '0':  # Only non holidays are considered (notice that empty values are ignored)
-                if len(curr_line_parts[0]) > 11:
-                    if curr_line_parts[0][-12:] == '00:00:00.000':
-                        half_hour_index = 48
-                        if curr_line_parts[7] == '1':
-                            curr_line_parts[7] = '7'
+        if len(curr_line_parts) > 6:
+            if curr_line_parts[5] != '' and curr_line_parts[6] != '' and \
+               curr_line_parts[5] != '#VALOR!' and curr_line_parts[6] != '#VALOR!':  # Exclude empty and invalid data
+                if curr_line_parts[4] == '0':  # Only non holidays are considered (notice that empty values are ignored)
+                    if len(curr_line_parts[0]) > 11:
+                        if curr_line_parts[0][-12:] == '00:00:00.000':
+                            half_hour_index = 48
+                            if curr_line_parts[7] == '1':
+                                curr_line_parts[7] = '7'
+                            else:
+                                curr_line_parts[7] = str(int(curr_line_parts[7]) - 1)
                         else:
-                            curr_line_parts[7] = str(int(curr_line_parts[7]) - 1)
-                    else:
-                        if curr_line_parts[0][-9:-7] == '30':
-                            half_hour_index = 2 * int(curr_line_parts[0][-12:-10]) + 1
-                        else:
-                            half_hour_index = 2 * int(curr_line_parts[0][-12:-10])
-                    yield (curr_line_parts[7], '%02d' % half_hour_index), (float(curr_line_parts[5]),
-                                                                           float(curr_line_parts[6]))
+                            if curr_line_parts[0][-9:-7] == '30':
+                                half_hour_index = 2 * int(curr_line_parts[0][-12:-10]) + 1
+                            else:
+                                half_hour_index = 2 * int(curr_line_parts[0][-12:-10])
+                        yield (curr_line_parts[7], '%02d' % half_hour_index), (float(curr_line_parts[5]),
+                                                                               float(curr_line_parts[6]))
+                        # Key: weekday, half hour index
+                        # Value: delta temperature, delta load
+        else:
+            print "Erro!"
 
     def calc_dispersion(self, key, values):
 
@@ -47,6 +53,8 @@ class LoadTempModel(MRJob):
         for index in range(len(temperature_values)):
             yield key, (temperature_values[index], load_values[index], temperature_mean, temperature_std_dev, load_mean,
                         load_std_dev)
+            # Key: weekday, half hour index
+            # Value: delta temperature, delta load, temperature mean, temperature std. dev., load mean, load std. dev.
 
     def exclude_outliers(self, key, values):
 
@@ -62,6 +70,19 @@ class LoadTempModel(MRJob):
         load_upper_limit = load_mean + self.outliers_range_width * load_std_dev
         if temp_lower_limit <= temp_value <= temp_upper_limit and load_lower_limit <= load_value <= load_upper_limit:
             yield key, [temp_value, load_value]
+            # Key: weekday, half hour index
+            # Value: delta temperature, delta load
+
+    def calc_regression(self, key, values):
+        temperature_values = []
+        load_values = []
+        for curr_value in values:
+            temperature_values.append(curr_value[0])
+            load_values.append(curr_value[1])
+        input_matrix = numpy.array([temperature_values, numpy.ones(len(temperature_values))])
+        output_matrix = load_values
+        coefficients = numpy.linalg.lstsq(input_matrix.T, output_matrix)
+        yield key, (coefficients[0][0], coefficients[0][1])
 
 
 if __name__ == '__main__':
