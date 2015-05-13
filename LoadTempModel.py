@@ -10,8 +10,8 @@ class LoadTempModel(MRJob):
     def steps(self):
         return [MRStep(mapper=self.prepare_data,
                        reducer=self.calc_dispersion),
-                MRStep(mapper=self.exclude_outliers)]
-        #               reducer=self.calc_regression)]
+                MRStep(mapper=self.exclude_outliers,
+                       reducer=self.calc_regression)]
 
     def prepare_data(self, _, current_line):
 
