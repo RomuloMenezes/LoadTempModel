@@ -9,9 +9,10 @@ class LoadTempModel(MRJob):
 
     def steps(self):
         return [MRStep(mapper=self.prepare_data,
-                       reducer=self.calc_dispersion)]
-        #        MRStep(mapper=self.exclude_outliers,
-        #               reducer=self.calc_regression)]
+                       reducer=self.calc_dispersion),
+                MRStep(mapper=self.exclude_outliers,
+                       reducer=self.calc_regression),
+                MRStep(mapper=self.calc_model_output)]
 
     def prepare_data(self, _, current_line):
 
@@ -116,6 +117,14 @@ class LoadTempModel(MRJob):
         for index in range(len(all_temperature_values)):
             yield key, (all_temperature_values[index], all_load_values[index],
                         coefficients[0][0], coefficients[0][1], input_output[index])
+
+    def calc_model_output(self, key, values):
+        input_temperature = values[0]
+        coefficient_a = values[2]
+        coefficient_b = values[3]
+        if values[4] == 'O':
+            calculated_load = coefficient_a * input_temperature + coefficient_b
+            yield key, (input_temperature, calculated_load, coefficient_a, coefficient_b)
 
 
 if __name__ == '__main__':
